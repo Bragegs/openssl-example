@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - sudo docker run -it -v "$PWD:/repository" debian:testing sh -c "
+      apt-get update &&
+      apt-get install --yes cmake make g\+\+ libssl-dev &&
+      cd /repository && mkdir build && cd build &&
+      cmake -DCMAKE_CXX_FLAGS=-Werror .. &&
+      make &&
+      CTEST_OUTPUT_ON_FAILURE=1 make test
+    "
