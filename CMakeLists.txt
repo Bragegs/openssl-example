@@ -5,7 +5,7 @@ project(crypto)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -Wextra -Wno-unused-parameter")
 
 if(APPLE)
-  set(OPENSSL_ROOT_DIR "/usr/local/opt/openssl")
+  set(OPENSSL_ROOT_DIR "/usr/include/openssl")
 endif()
 
 find_package(OpenSSL REQUIRED)
